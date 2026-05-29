@@ -1,0 +1,15 @@
+<div class="car-card">
+
+    <h3>{{ car.marque }} {{ car.modele }}</h3>
+
+    <p>Immatriculation : {{ car.immatriculation }}</p>
+    <p>Année : {{ car.annee }}</p>
+
+    <p>
+        État :
+        <span [ngClass]="car.etat">
+            {{ car.etat }}
+        </span>
+    </p>
+
+</div>

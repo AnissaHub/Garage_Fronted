@@ -1,0 +1,9 @@
+<p>Liste des voitures</p>
+
+<div class="cars-container">
+
+    @for (c of cars; track c.immatriculation) {
+    <app-car-component [car]="c"></app-car-component>
+    }
+
+</div>
