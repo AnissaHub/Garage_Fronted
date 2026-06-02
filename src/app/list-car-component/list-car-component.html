@@ -1,9 +1,9 @@
-<p>Liste des voitures</p>
+<h2>Catalogue des voitures</h2>
 
-<div class="cars-container">
-
-    @for (c of cars; track c.immatriculation) {
-    <app-car-component [car]="c"></app-car-component>
-    }
-
+<div class="car-list">
+@for (c of cars; track c.immatriculation) {
+<app-car-component [car]="c" (addToCart)="onAddToCart($event)">
+</app-car-component>
+}
+    
 </div>

@@ -1,0 +1,8 @@
+<h2>Mon panier</h2>
+
+@for (car of cart; track car.immatriculation) {
+<div>
+    <p>{{ car.marque }} {{ car.modele }}</p>
+    <p>{{ car.prix }} €</p>
+</div>
+}

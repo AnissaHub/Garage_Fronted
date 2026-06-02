@@ -1,5 +1,6 @@
-.cars-container {
+.car-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 15px;
+    justify-content: center;
 }

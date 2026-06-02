@@ -1,15 +1,11 @@
-<div class="car-card">
+<div class="car-card" (click)="goToDetail(car.immatriculation)">
 
     <h3>{{ car.marque }} {{ car.modele }}</h3>
 
-    <p>Immatriculation : {{ car.immatriculation }}</p>
-    <p>Année : {{ car.annee }}</p>
+    <p>{{ car.prix }} €</p>
 
-    <p>
-        État :
-        <span [ngClass]="car.etat">
-            {{ car.etat }}
-        </span>
-    </p>
+    <button class="btn-cart" (click)="add(); $event.stopPropagation()">
+        Ajouter au panier
+    </button>
 
 </div>

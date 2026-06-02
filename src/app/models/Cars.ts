@@ -3,6 +3,12 @@ export interface Car {
   marque: string;
   modele: string;
   annee: number;
-  etat: string;
-  dateEntree: string;
+
+  kilometrage: number;
+  prix: number;
+
+  etat: 'en_stock' | 'reservee' | 'vendue';
+
+  description?: string;
+  image?: string;
 }
