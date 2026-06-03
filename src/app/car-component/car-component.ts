@@ -23,6 +23,7 @@ export class CarComponent {
     this.addToCart.emit(this.car);
      alert('Voiture ajoutée au panier 🛒');
   }
+  
 
   // détail voiture
   goToDetail(immatriculation: string) {

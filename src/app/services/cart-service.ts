@@ -1,48 +1,53 @@
 import { Injectable } from '@angular/core';
-import { Car } from '../models/Cars';
+import { Car, CartItem } from '../models/Cars';
 
-@Injectable({
-  providedIn: 'root'
-})
+
+@Injectable({ providedIn: 'root' })
 export class CartService {
 
-  //  panier privé
-  private cart: Car[] = [];
+  private cart: CartItem[] = [];
 
-  //  récupérer le panier
-  getCart(): Car[] {
+  addToCart(car: Car): void {
+    const existing = this.cart.find(i => i.car.immatriculation === car.immatriculation);
+    if (existing) {
+      existing.quantity++;
+    } else {
+      this.cart.push({ car, quantity: 1 });
+    }
+  }
+
+  increment(immatriculation: string): void {
+    const item = this.cart.find(i => i.car.immatriculation === immatriculation);
+    if (item) item.quantity++;
+  }
+
+  decrement(immatriculation: string): void {
+    const item = this.cart.find(i => i.car.immatriculation === immatriculation);
+    if (!item) return;
+    if (item.quantity > 1) {
+      item.quantity--;
+    } else {
+      this.removeFromCart(immatriculation); // supprime si quantité = 0
+    }
+  }
+
+  removeFromCart(immatriculation: string): void {
+    this.cart = this.cart.filter(i => i.car.immatriculation !== immatriculation);
+  }
+
+  getCart(): CartItem[] {
     return this.cart;
   }
 
-  //  ajouter une voiture au panier
-  addToCart(car: Car): void {
-
-    this.cart.push(car);
+  getTotal(): number {
+    return this.cart.reduce((acc, i) => acc + i.car.prix * i.quantity, 0);
   }
 
-  // //supprimer une voiture du panier
-  // removeFromCart(car: Car): void {
-  //   this.cart = this.cart.filter(
-  //     c => c.immatriculation !== car.immatriculation
-  //   );
-  // }
+  getCount(): number {
+    return this.cart.reduce((acc, i) => acc + i.quantity, 0);
+  }
 
-  // //  vider le panier
-  // clearCart(): void {
-  //   this.cart = [];
-  // }
-
-  // //  total du panier
-  // getTotal(): number {
-  //   return this.cart.reduce((total, car) => {
-  //     return total + car.prix;
-  //   }, 0);
-  // }
-
-  // // vérifier si une voiture est déjà dans le panier
-  // isInCart(car: Car): boolean {
-  //   return this.cart.some(
-  //     c => c.immatriculation === car.immatriculation
-  //   );
-  // }
+  clearCart(): void {
+    this.cart = [];
+  }
 }

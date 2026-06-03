@@ -1,8 +1,36 @@
 <h2>Mon panier</h2>
 
-@for (car of cart; track car.immatriculation) {
-<div>
-    <p>{{ car.marque }} {{ car.modele }}</p>
-    <p>{{ car.prix }} €</p>
+@if (cart.length === 0) {
+<p>Votre panier est vide.</p>
+<button routerLink="/">Retour au catalogue</button>
+
+} @else {
+@for (item of cart; track item.car.immatriculation) {
+<div class="cart-item">
+    <div class="cart-item-info">
+        <h3>{{ item.car.marque }} {{ item.car.modele }}</h3>
+        <p>{{ item.car.annee }} — {{ item.car.kilometrage }} km</p>
+        <p class="prix">{{ item.car.prix }} €</p>
+    </div>
+    <div class="cart-item-actions">
+        <div class="cart-item-quantity">
+            <button (click)="decrement(item.car.immatriculation)">−</button>
+            <span>{{ item.quantity }}</span>
+            <button (click)="increment(item.car.immatriculation)">+</button>
+        </div>
+        <button class="btn-remove" (click)="remove(item.car.immatriculation)">
+            🗑 Supprimer
+        </button>
+    </div>
+</div>
+}
+
+
+<div class="cart-footer">
+    <p class="total">Total : {{ total }} €</p>
+    <div class="cart-actions">
+        <button class="btn-clear" (click)="clear()">Vider le panier</button>
+        <button routerLink="/">Continuer mes achats</button>
+    </div>
 </div>
 }

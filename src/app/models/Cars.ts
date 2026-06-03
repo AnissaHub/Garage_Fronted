@@ -12,3 +12,7 @@ export interface Car {
   description?: string;
   image?: string;
 }
+export interface CartItem {
+  car: Car;
+  quantity: number;
+}

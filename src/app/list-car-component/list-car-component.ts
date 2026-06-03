@@ -4,11 +4,12 @@ import { CarComponent } from '../car-component/car-component';
 import { CarService } from '../services/car-service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from '../services/cart-service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   standalone: true,
   selector: 'app-list-car-component',
-  imports: [CarComponent],
+  imports: [CarComponent, RouterLink],
   templateUrl: './list-car-component.html',
   styleUrl: './list-car-component.scss',
 })
@@ -44,10 +45,11 @@ goToDetail(immatriculation: string) {
   }
   
   onAddToCart(car: Car): void {
+  console.log("AJOUT RECU :", car);
   this.cartService.addToCart(car);
+}
 }
 //   constructor(private carService: CarService) {}
 //   ngOnInit() {
 //   this.cars = this.carService.getCars();
 // }
-}

@@ -2,8 +2,12 @@
 
 <div class="car-list">
 @for (c of cars; track c.immatriculation) {
-<app-car-component [car]="c" (addToCart)="onAddToCart($event)">
+<app-car-component [car]="c" 
+(addToCart)="onAddToCart($event)">
 </app-car-component>
 }
     
 </div>
+<button routerLink="/cart">
+    Voir le panier
+</button>

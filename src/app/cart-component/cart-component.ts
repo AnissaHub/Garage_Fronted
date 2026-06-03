@@ -1,21 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CartService } from '../services/cart-service';
-import { Car } from '../models/Cars';
+import { CartItem } from '../models/Cars';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
+  imports: [RouterLink],
   templateUrl: './cart-component.html',
+  styleUrl: './cart-component.scss',
 })
-export class CartComponent implements OnInit {
-
-  cart: Car[] = [];
-  
+export class CartComponent {
 
   constructor(private cartService: CartService) {}
 
-  ngOnInit(): void {
-    this.cart = this.cartService.getCart();
-    
+  get cart(): CartItem[] {
+    return this.cartService.getCart();
   }
+
+  get total(): number {
+    return this.cartService.getTotal();
+  }
+
+  increment(immatriculation: string): void {
+    this.cartService.increment(immatriculation);
+  }
+
+  decrement(immatriculation: string): void {
+    this.cartService.decrement(immatriculation);
+  }
+
+  clear(): void {
+    this.cartService.clearCart();
+  }
+  remove(immatriculation: string): void {
+  this.cartService.removeFromCart(immatriculation);
+}
 }
