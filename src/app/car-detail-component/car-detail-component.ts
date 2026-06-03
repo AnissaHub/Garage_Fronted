@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CarService } from '../services/car-service';
+import { CartService } from '../services/cart-service';
 import { Car } from '../models/Cars';
 
 @Component({
   selector: 'app-car-detail-component',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './car-detail-component.html',
   styleUrl: './car-detail-component.scss',
 })
@@ -16,18 +17,22 @@ export class CarDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private carService: CarService
+    private router: Router,
+    private carService: CarService,
+    private cartService: CartService
   ) {}
 
   ngOnInit(): void {
-
-    const immatriculation =
-      this.route.snapshot.paramMap.get('immatriculation');
-
-    // if (immatriculation) {
-    //   this.car =
-    //     this.carService.getCarByImmatriculation(immatriculation);
-    // }
+    const immatriculation = this.route.snapshot.paramMap.get('immatriculation');
+    if (immatriculation) {
+      this.car = this.carService.getCarByImmatriculation(immatriculation);
+    }
   }
-  
+
+  addToCart(): void {
+    if (this.car) {
+      this.cartService.addToCart(this.car);
+      alert('Voiture ajoutée au panier 🛒');
+    }
+  }
 }

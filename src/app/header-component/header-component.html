@@ -1,0 +1,20 @@
+<header class="header">
+    <div class="header-logo">
+        <a routerLink="/">AnissaAutoMarket</a>
+    </div>
+
+    <nav class="header-nav">
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            Accueil
+        </a>
+        <a routerLink="/cart" routerLinkActive="active">
+            🛒 Panier
+            @if (cartCount > 0) {
+            <span class="badge">{{ cartCount }}</span>
+            }
+        </a>
+        <a routerLink="/login" routerLinkActive="active">
+            Connexion
+        </a>
+    </nav>
+</header>
