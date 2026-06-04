@@ -22,13 +22,19 @@ export class CarDetailComponent implements OnInit {
     private cartService: CartService
   ) {}
 
-  ngOnInit(): void {
-    const immatriculation = this.route.snapshot.paramMap.get('immatriculation');
-    if (immatriculation) {
-      this.car = this.carService.getCarByImmatriculation(immatriculation);
-    }
+ ngOnInit(): void {
+  const immatriculation = this.route.snapshot.paramMap.get('immatriculation');
+  if (immatriculation) {
+    this.carService.getCarByImmatriculation(immatriculation).subscribe({
+      next: (car) => {
+        this.car = car;
+      },
+      error: (err) => {
+        console.error('Voiture introuvable', err);
+      }
+    });
   }
-
+}
   addToCart(): void {
     if (this.car) {
       this.cartService.addToCart(this.car);

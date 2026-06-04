@@ -22,10 +22,26 @@ export class ListCarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.cars = this.carService.getCars();
+    this.carService.getCars().subscribe({
+      next: (data) => {
+        this.cars = data;
+      },
+      error: (err) => {
+        console.error('Erreur chargement voitures', err);
+      }
+    });
   }
 
   onAddToCart(car: Car): void {
     this.cartService.addToCart(car);
   }
+
+  // → getCars() envoie GET /api/cars
+  //   → interceptor ajoute le token automatiquement
+  //     → Symfony vérifie le token
+  //       → retourne { data: [...] }
+  //         → map() extrait le tableau
+  //           → next() reçoit les voitures
+  //             → this.cars = data
+  //               → template affiche la liste
 }
