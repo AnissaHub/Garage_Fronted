@@ -11,8 +11,13 @@ export class AuthService {
   private apiUrl = 'https://127.0.0.1:8000/api';
 
   // Injection du service HTTP Angular
-  constructor(private http: HttpClient) {}
-
+  constructor(private http: HttpClient) { }
+  
+  // inscription utilisateur
+  register(email: string, password: string) {
+  return this.http.post<any>(`${this.apiUrl}/register`, { email, password });
+  }
+   
   /**
    * Connexion utilisateur
    * Envoie email + mot de passe à Symfony
@@ -79,6 +84,7 @@ export class AuthService {
     return this.getToken() !== null;
 
   }
+
 
   // isAdmin(): boolean {
   // const user = this.getUser();
