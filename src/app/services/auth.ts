@@ -65,6 +65,11 @@ export class AuthService {
     return localStorage.getItem('token');
 
   }
+   //  récupérer les infos de l'utilisateur connecté depuis le localStorage.
+  getUser(): any {
+    const user = localStorage.getItem('user');
+    return user ? JSON.parse(user) : null;
+  }
 
   /**
    * Vérifie si l'utilisateur est connecté

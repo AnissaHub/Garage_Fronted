@@ -22,15 +22,13 @@ export class ListCarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.carService.getCars().subscribe({
-      next: (data) => {
-        this.cars = data;
-      },
-      error: (err) => {
-        console.error('Erreur chargement voitures', err);
-      }
-    });
-  }
+  this.carService.getCars().subscribe({
+    next: (data) => {
+      console.log('DATA API :', data);  // ← ajoutez ici
+      this.cars = data;
+    }
+  });
+}
 
   onAddToCart(car: Car): void {
     this.cartService.addToCart(car);

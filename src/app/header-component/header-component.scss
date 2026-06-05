@@ -72,3 +72,17 @@
     margin-left: 0.4rem;
     vertical-align: middle;
 }
+.user-email {
+    color: #aaa;
+    font-size: 0.85rem;
+}
+
+.btn-logout {
+    color: #e63946;
+    cursor: pointer;
+    font-weight: 600;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}

@@ -8,6 +8,8 @@ export class CartService {
   private cart: CartItem[] = [];
 
   addToCart(car: Car): void {
+      console.log('CAR REÇU :', car);
+  console.log('PRIX :', car.prix);
     const existing = this.cart.find(i => i.car.immatriculation === car.immatriculation);
     if (existing) {
       existing.quantity++;
@@ -40,8 +42,11 @@ export class CartService {
   }
 
   getTotal(): number {
-    return this.cart.reduce((acc, i) => acc + i.car.prix * i.quantity, 0);
-  }
+  return this.cart.reduce((acc, i) => {
+    console.log(typeof i.car.prix, i.car.prix); // ← ici
+    return acc + Number(i.car.prix) * i.quantity;
+  }, 0);
+}
 
   getCount(): number {
     return this.cart.reduce((acc, i) => acc + i.quantity, 0);

@@ -13,8 +13,12 @@
             <span class="badge">{{ cartCount }}</span>
             }
         </a>
-        <a routerLink="/login" routerLinkActive="active">
-            Connexion
-        </a>
+
+        @if (isLoggedIn) {
+        <span class="user-email">{{ userEmail }}</span>
+        <a (click)="logout()" class="btn-logout">Déconnexion</a>
+        } @else {
+        <a routerLink="/login" routerLinkActive="active">Connexion</a>
+        }
     </nav>
 </header>

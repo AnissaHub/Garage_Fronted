@@ -30,10 +30,11 @@ export class CartComponent {
     this.cartService.decrement(immatriculation);
   }
 
+  remove(immatriculation: string): void {
+    this.cartService.removeFromCart(immatriculation);
+  }
+
   clear(): void {
     this.cartService.clearCart();
   }
-  remove(immatriculation: string): void {
-  this.cartService.removeFromCart(immatriculation);
-}
 }
