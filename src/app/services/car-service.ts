@@ -25,4 +25,23 @@ export class CarService {
       map(response => response.data)
     );
   }
+
+  // Création — POST /api/cars
+  createCar(data: Partial<Car>): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/cars`, data);
+  }
+
+  // Suppression — DELETE /api/cars/:immatriculation
+  deleteCar(immatriculation: string): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/cars/${immatriculation}`);
+  }
+
+  // Modification — PUT /api/cars/:immatriculation
+  updateCar(immatriculation: string, data: Partial<Car>): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/cars/${immatriculation}`, data);
+  }
+
+  updateEtat(immatriculation: string, etat: string): Observable<any> {
+  return this.http.patch<any>(`${this.apiUrl}/cars/${immatriculation}/etat`, { etat });
+}
 }

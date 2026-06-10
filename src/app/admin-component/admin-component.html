@@ -1,0 +1,118 @@
+<div class="admin-container">
+    <h2>Administration — Gestion des voitures</h2>
+
+    @if (successMessage) {
+    <p class="success">{{ successMessage }}</p>
+    }
+    @if (errorMessage) {
+    <p class="error">{{ errorMessage }}</p>
+    }
+
+    <!-- ── Formulaire création/modification ───────── -->
+    <div class="admin-form">
+        <h3>{{ isEditing ? 'Modifier la voiture' : 'Ajouter une voiture' }}</h3>
+
+        <div class="form-group">
+            <label>Immatriculation *</label>
+            <input type="text" [(ngModel)]="formCar.immatriculation" placeholder="AA-123-BB" [disabled]="isEditing" />
+        </div>
+
+        <div class="form-group">
+            <label>Marque *</label>
+            <input type="text" [(ngModel)]="formCar.marque" placeholder="Peugeot" />
+        </div>
+
+        <div class="form-group">
+            <label>Modèle *</label>
+            <input type="text" [(ngModel)]="formCar.modele" placeholder="208" />
+        </div>
+
+        <div class="form-group">
+            <label>Année</label>
+            <input type="number" [(ngModel)]="formCar.annee" placeholder="2021" />
+        </div>
+
+        <div class="form-group">
+            <label>Couleur</label>
+            <input type="text" [(ngModel)]="formCar.couleur" placeholder="Blanc" />
+        </div>
+
+        <div class="form-group">
+            <label>Kilométrage</label>
+            <input type="number" [(ngModel)]="formCar.kilometrage" placeholder="45000" />
+        </div>
+
+        <div class="form-group">
+            <label>Prix *</label>
+            <input type="number" [(ngModel)]="formCar.prix" placeholder="12500" />
+        </div>
+
+        <div class="form-group">
+            <label>État</label>
+            <select [(ngModel)]="formCar.etat">
+                <option value="en_stock">En stock</option>
+                <option value="reservee">Réservée</option>
+                <option value="vendue">Vendue</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Description</label>
+            <textarea [(ngModel)]="formCar.description" placeholder="Description..."></textarea>
+        </div>
+
+        <div class="form-actions">
+            <button (click)="onSubmit()">
+                {{ isEditing ? 'Modifier' : 'Ajouter la voiture' }}
+            </button>
+            @if (isEditing) {
+            <button class="btn-cancel" (click)="resetForm()">Annuler</button>
+            }
+        </div>
+    </div>
+
+    <!-- ── Liste des voitures ──────────────────────── -->
+    <div class="admin-list">
+        <h3>Liste des voitures ({{ cars.length }})</h3>
+
+        @if (cars.length === 0) {
+        <p>Aucune voiture.</p>
+        } @else {
+        <table>
+            <thead>
+                <tr>
+                    <th>Immatriculation</th>
+                    <th>Marque</th>
+                    <th>Modèle</th>
+                    <th>Prix</th>
+                    <th>État</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (car of cars; track car.immatriculation) {
+                <tr>
+                    <td>{{ car.immatriculation }}</td>
+                    <td>{{ car.marque }}</td>
+                    <td>{{ car.modele }}</td>
+                    <td>{{ car.prix }} €</td>
+                    <td>
+                        <select (change)="updateEtat(car.immatriculation, $any($event.target).value)">
+                            <option value="en_stock" [selected]="car.etat === 'en_stock'">En stock</option>
+                            <option value="reservee" [selected]="car.etat === 'reservee'">Réservée</option>
+                            <option value="vendue" [selected]="car.etat === 'vendue'">Vendue</option>
+                        </select>
+                    </td>
+                    <td class="actions">
+                        <button class="btn-edit" (click)="editCar(car)">✏️ Modifier</button>
+                        <button class="btn-delete" (click)="deleteCar(car.immatriculation)">🗑 Supprimer</button>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+        }
+    </div>
+
+    <button routerLink="/">Retour au catalogue</button>
+</div>

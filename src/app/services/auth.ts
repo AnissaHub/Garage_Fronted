@@ -39,10 +39,8 @@ export class AuthService {
         console.log('Token reçu :', response.token);
 
         // Sauvegarde du JWT dans le navigateur
-        localStorage.setItem(
-          'token',
-          response.token
-        );
+        localStorage.setItem('token', response.token);
+        localStorage.setItem('user', JSON.stringify(response.user));
 
       })
 
@@ -53,13 +51,11 @@ export class AuthService {
    * Déconnexion
    * Supprime le token JWT
    */
-  logout(): void {
-
-    localStorage.removeItem('token');
-
-    console.log('Utilisateur déconnecté');
-
-  }
+ logout(): void {
+  localStorage.removeItem('token');
+  localStorage.removeItem('user'); 
+  console.log('Utilisateur déconnecté');
+}
 
   /**
    * Récupère le token stocké
@@ -86,9 +82,9 @@ export class AuthService {
   }
 
 
-  // isAdmin(): boolean {
-  // const user = this.getUser();
-  // return user?.roles?.includes('ROLE_ADMIN') ?? false;
-//}
+  isAdmin(): boolean {
+  const user = this.getUser();
+  return user?.roles?.includes('ROLE_ADMIN') ?? false;
+}
 
 }

@@ -5,6 +5,11 @@ import { CartComponent } from './cart-component/cart-component';
 import { LoginComponent } from './login-component/login-component';
 import { authGuard } from './services/auth-guard';
 import { RegisterComponent } from './register-component/register-component';
+import { adminGuard } from './services/admin-guard';
+import { AdminComponent } from './admin-component/admin-component';
+
+
+
 export const routes: Routes = [
     {
         path: '',
@@ -27,6 +32,19 @@ export const routes: Routes = [
     {
         path: 'register',
         component: RegisterComponent
+    },
+    
+     {
+    path: 'cart',
+         component: CartComponent,
+         canActivate: [authGuard]
+    },
+     
+    {
+        path: 'admin',
+        component: AdminComponent,
+        canActivate: [adminGuard]
     }
+     
 
 ];

@@ -21,5 +21,8 @@
            <a routerLink="/register" routerLinkActive="active">Inscription</a>
            <a routerLink="/login" routerLinkActive="active">Connexion</a>
         }
+        @if (isAdmin) {
+        <a routerLink="/admin" routerLinkActive="active">Administration</a>
+        }
     </nav>
 </header>

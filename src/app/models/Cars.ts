@@ -8,7 +8,7 @@ export interface Car {
   prix: number;
 
   etat: 'en_stock' | 'reservee' | 'vendue';
-
+  couleur?: string;
   description?: string;
   image?: string;
 }

@@ -27,11 +27,16 @@ export class HeaderComponent {
     return this.authService.isLoggedIn();
   }
 
+  get isAdmin(): boolean {
+  return this.authService.isAdmin();
+}
+
   get userEmail(): string {
     return this.authService.getUser()?.email ?? '';
   }
 
   logout(): void {
+    this.cartService.clearCart();
     this.authService.logout();
     this.router.navigate(['/login']);
   }
