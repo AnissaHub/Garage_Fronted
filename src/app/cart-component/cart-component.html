@@ -24,12 +24,12 @@
     </div>
 </div>
 }
-
-<div class="cart-footer">
+ <div class="cart-footer">
     <p class="total"> Total : {{ total }} €</p>
     <div class="cart-actions">
         <button class="btn-clear" (click)="clear()">Vider le panier</button>
         <button routerLink="/">Continuer mes achats</button>
+        <button class="btn-order" routerLink="/checkout">Commander</button> 
     </div>
-</div>
+ </div>
 }

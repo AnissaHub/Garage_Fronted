@@ -7,6 +7,7 @@ import { authGuard } from './services/auth-guard';
 import { RegisterComponent } from './register-component/register-component';
 import { adminGuard } from './services/admin-guard';
 import { AdminComponent } from './admin-component/admin-component';
+import { CheckoutComponent } from './checkout-component/checkout-component';
 
 
 
@@ -44,7 +45,18 @@ export const routes: Routes = [
         path: 'admin',
         component: AdminComponent,
         canActivate: [adminGuard]
+    },
+    {
+        path: 'checkout',
+        component: CheckoutComponent,
+        canActivate: [authGuard]
+    },
+    {
+        path: 'checkout',
+        component: CheckoutComponent,
+        canActivate: [authGuard]
     }
+
      
 
 ];

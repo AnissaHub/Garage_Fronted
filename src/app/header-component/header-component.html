@@ -14,12 +14,13 @@
             }
         </a>
 
-      @if (isLoggedIn) {
-      <span class="user-email">{{ userEmail }}</span>
-       <a (click)="logout()" class="btn-logout">Déconnexion</a>
-      } @else {
-           <a routerLink="/register" routerLinkActive="active">Inscription</a>
-           <a routerLink="/login" routerLinkActive="active">Connexion</a>
+        @if (isLoggedIn) {
+        <a routerLink="/checkout" routerLinkActive="active">Commande</a> 
+        <span class="user-email">{{ userEmail }}</span>
+        <a (click)="logout()" class="btn-logout">Déconnexion</a>
+        } @else {
+        <a routerLink="/register" routerLinkActive="active">Inscription</a>
+        <a routerLink="/login" routerLinkActive="active">Connexion</a>
         }
         @if (isAdmin) {
         <a routerLink="/admin" routerLinkActive="active">Administration</a>
