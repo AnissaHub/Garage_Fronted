@@ -1,4 +1,5 @@
 export interface Car {
+  id: number;
   immatriculation: string;
   marque: string;
   modele: string;

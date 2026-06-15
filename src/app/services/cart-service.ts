@@ -43,7 +43,7 @@ export class CartService {
 
   getTotal(): number {
   return this.cart.reduce((acc, i) => {
-    console.log(typeof i.car.prix, i.car.prix); // ← ici
+   
     return acc + Number(i.car.prix) * i.quantity;
   }, 0);
 }
