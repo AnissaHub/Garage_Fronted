@@ -1,0 +1,39 @@
+<div class="orders-container">
+    <h2>Mes commandes</h2>
+
+    @if (isLoading) {
+    <p>Chargement...</p>
+    } @else if (errorMessage) {
+    <p class="error">{{ errorMessage }}</p>
+    } @else if (orders.length === 0) {
+    <p>Vous n'avez pas encore de commande.</p>
+    <button routerLink="/">Voir le catalogue</button>
+    } @else {
+    @for (order of orders; track order.id) {
+    <div class="order-card">
+
+        <div class="order-header">
+            <span class="order-id">Commande #{{ order.id }}</span>
+            <span class="order-date">{{ order.createdAt }}</span>
+            <span class="order-statut {{ order.statut }}">{{ order.statut }}</span>
+        </div>
+
+        <div class="order-items">
+            @for (item of order.items; track item.immatriculation) {
+            <div class="order-item">
+                <p>{{ item.marque }} {{ item.modele }}</p>
+                <p>{{ item.quantite }} x {{ item.prix }} €</p>
+            </div>
+            }
+        </div>
+
+        <div class="order-footer">
+            <p class="order-total">Total : <strong>{{ order.total }} €</strong></p>
+        </div>
+
+    </div>
+    }
+    }
+
+    <button routerLink="/">Retour au catalogue</button>
+</div>

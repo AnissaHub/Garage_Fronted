@@ -15,7 +15,7 @@
         </a>
 
         @if (isLoggedIn) {
-        <a routerLink="/checkout" routerLinkActive="active">Commande</a> 
+    <a routerLink="/orders" routerLinkActive="active">Mes commandes</a>
         <span class="user-email">{{ userEmail }}</span>
         <a (click)="logout()" class="btn-logout">Déconnexion</a>
         } @else {

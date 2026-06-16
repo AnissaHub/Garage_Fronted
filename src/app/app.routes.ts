@@ -8,6 +8,7 @@ import { RegisterComponent } from './register-component/register-component';
 import { adminGuard } from './services/admin-guard';
 import { AdminComponent } from './admin-component/admin-component';
 import { CheckoutComponent } from './checkout-component/checkout-component';
+import { OrdersComponent} from './orders-component/orders-component';
 
 
 
@@ -54,6 +55,10 @@ export const routes: Routes = [
     {
         path: 'checkout',
         component: CheckoutComponent,
+        canActivate: [authGuard]
+    },
+    { path: 'orders', 
+        component: OrdersComponent,
         canActivate: [authGuard]
     }
 
