@@ -103,10 +103,14 @@
                             <option value="vendue" [selected]="car.etat === 'vendue'">Vendue</option>
                         </select>
                     </td>
-                    <td class="actions">
-                        <button class="btn-edit" (click)="editCar(car)">✏️ Modifier</button>
-                        <button class="btn-delete" (click)="deleteCar(car.immatriculation)">🗑 Supprimer</button>
-                    </td>
+                <td class="actions">
+                    <button mat-icon-button color="primary" (click)="editCar(car)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" (click)="deleteCar(car.immatriculation)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
                 </tr>
                 }
             </tbody>

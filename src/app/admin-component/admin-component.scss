@@ -170,3 +170,16 @@ table {
     border-radius: 8px;
     margin-bottom: 1rem;
 }
+.actions {
+    button {
+        background: transparent !important;
+    }
+
+    .mat-primary {
+        color: #1976d2 !important;
+    }
+
+    .mat-warn {
+        color: #f44336 !important;
+    }
+}

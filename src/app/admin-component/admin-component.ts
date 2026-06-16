@@ -4,11 +4,13 @@ import { RouterLink } from '@angular/router';
 import { CarService } from '../services/car-service';
 import { Car } from '../models/Cars';
 import { AuthService } from '../services/auth';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-admin-component',
   standalone: true,
-  imports: [FormsModule, RouterLink],
+   imports: [FormsModule, RouterLink, MatIconModule, MatButtonModule],
   templateUrl: './admin-component.html',
   styleUrl: './admin-component.scss',
 })

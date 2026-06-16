@@ -1,17 +1,21 @@
 <header class="header">
     <div class="header-logo">
-        <a routerLink="/">AnissaAutoMarket</a>
+        <a routerLink="/">
+            <mat-icon>directions_car</mat-icon>
+            AnissaAutoMarket
+        </a>
     </div>
 
     <nav class="header-nav">
         <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
             Accueil
         </a>
-        <a routerLink="/cart" routerLinkActive="active">
-            🛒 Panier
-            @if (cartCount > 0) {
-            <span class="badge">{{ cartCount }}</span>
-            }
+        <a routerLink="/cart" routerLinkActive="active" class="cart-link">
+            <button mat-icon-button>
+                <mat-icon [matBadge]="cartCount" matBadgeColor="warn" [matBadgeHidden]="cartCount === 0">
+                    shopping_cart
+                </mat-icon>
+            </button>
         </a>
 
         @if (isLoggedIn) {

@@ -3,11 +3,15 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CartService } from '../services/cart-service';
 import { AuthService } from '../services/auth';
 import { Router } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatBadgeModule } from '@angular/material/badge';
+  
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, MatIconModule, MatButtonModule, MatBadgeModule],
   templateUrl: './header-component.html',
   styleUrl: './header-component.scss',
 })
