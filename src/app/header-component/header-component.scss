@@ -1,0 +1,103 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #1a1a2e;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.header-logo a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-decoration: none;
+
+    background: linear-gradient(135deg, #e63946, #ff6b35);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    mat-icon {
+        font-size: 1.8rem;
+        width: 1.8rem;
+        height: 1.8rem;
+        color: #e63946;
+        -webkit-text-fill-color: #e63946;
+    }
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    a {
+        position: relative;
+        color: #ccc;
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: color 0.2s;
+
+        &:hover {
+            color: #fff;
+        }
+
+        &.active {
+            color: #fff;
+            font-weight: 700;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background: #e63946;
+                border-radius: 2px;
+            }
+        }
+    }
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #e63946;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    margin-left: 0.4rem;
+    vertical-align: middle;
+}
+.user-email {
+    color: #aaa;
+    font-size: 0.85rem;
+}
+
+.btn-logout {
+    color: #e63946;
+    cursor: pointer;
+    font-weight: 600;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+::ng-deep .mat-badge-content {
+    background-color: #ff6b35 !important; 
+    color: #fff !important;
+    font-weight: 700 !important;
+}

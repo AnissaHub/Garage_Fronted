@@ -1,0 +1,19 @@
+export interface Car {
+  id: number;
+  immatriculation: string;
+  marque: string;
+  modele: string;
+  annee: number;
+
+  kilometrage: number;
+  prix: number;
+
+  etat: 'en_stock' | 'reservee' | 'vendue';
+  couleur?: string;
+  description?: string;
+  image?: string;
+}
+export interface CartItem {
+  car: Car;
+  quantity: number;
+}

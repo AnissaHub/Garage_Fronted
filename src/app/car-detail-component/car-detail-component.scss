@@ -1,0 +1,98 @@
+.car-detail {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+    h2 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #1a1a2e;
+        margin: 1rem 0;
+    }
+}
+
+.car-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin: 1.5rem 0;
+
+    p {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.8rem 1rem;
+        background: #f8f8f8;
+        border-radius: 8px;
+        margin: 0;
+
+        span:first-child {
+            font-weight: 600;
+            color: #555;
+        }
+    }
+
+    .prix {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #e63946;
+        justify-content: flex-end;
+    }
+}
+
+.etat {
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    &.en_stock {
+        background: #d4edda;
+        color: #155724;
+    }
+
+    &.reservee {
+        background: #fff3cd;
+        color: #856404;
+    }
+
+    &.vendue {
+        background: #f8d7da;
+        color: #721c24;
+    }
+}
+
+.btn-cart {
+    width: 100%;
+    padding: 0.9rem;
+    background: #1a1a2e;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    &:hover {
+        opacity: 0.85;
+    }
+}
+
+button[routerLink] {
+    background: transparent;
+    border: none;
+    color: #1a1a2e;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 1rem;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}

@@ -1,0 +1,185 @@
+.admin-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+
+    h2 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #1a1a2e;
+        margin-bottom: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #1a1a2e;
+        margin-bottom: 1rem;
+    }
+}
+
+.admin-form {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+
+    h3 {
+        grid-column: 1 / -1;
+    }
+
+    button {
+        grid-column: 1 / -1;
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+
+    label {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #555;
+    }
+
+    input,
+    select,
+    textarea {
+        padding: 0.8rem 1rem;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        transition: border-color 0.2s;
+
+        &:focus {
+            outline: none;
+            border-color: #1a1a2e;
+        }
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 80px;
+    }
+}
+
+button {
+    padding: 0.9rem 1.5rem;
+    background: #1a1a2e;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    &:hover {
+        opacity: 0.85;
+    }
+}
+
+// ── Table ──────────────────────────────────────────
+.admin-list {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th {
+        background: #1a1a2e;
+        color: #fff;
+        padding: 0.8rem 1rem;
+        text-align: left;
+        font-size: 0.9rem;
+    }
+
+    td {
+        padding: 0.8rem 1rem;
+        border-bottom: 1px solid #f0f0f0;
+        font-size: 0.9rem;
+    }
+
+    tr:hover td {
+        background: #f9f9f9;
+    }
+}
+
+.btn-delete {
+    padding: 0.4rem 0.8rem;
+    background: transparent;
+    border: 2px solid #e63946;
+    color: #e63946;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+        background: #e63946;
+        color: #fff;
+    }
+}
+
+.etat {
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    &.en_stock {
+        background: #d4edda;
+        color: #155724;
+    }
+
+    &.reservee {
+        background: #fff3cd;
+        color: #856404;
+    }
+
+    &.vendue {
+        background: #f8d7da;
+        color: #721c24;
+    }
+}
+
+.success {
+    background: #d4edda;
+    color: #155724;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.error {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+.actions {
+    button {
+        background: transparent !important;
+    }
+
+    .mat-primary {
+        color: #1976d2 !important;
+    }
+
+    .mat-warn {
+        color: #f44336 !important;
+    }
+}

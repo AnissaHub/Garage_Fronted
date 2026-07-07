@@ -1,0 +1,77 @@
+.car-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    h3 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #1a1a2e;
+        margin: 0;
+    }
+
+    p {
+        font-size: 0.9rem;
+        color: #888;
+        margin: 0;
+    }
+
+    .prix {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #e63946;
+        margin-top: 0.5rem;
+    }
+
+    .etat {
+        display: inline-block;
+        padding: 0.2rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+
+        &.en_stock {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        &.reservee {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        &.vendue {
+            background: #f8d7da;
+            color: #721c24;
+        }
+    }
+
+    button {
+        margin-top: auto;
+        padding: 0.7rem;
+        background: #1a1a2e;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: opacity 0.2s;
+
+        &:hover {
+            opacity: 0.85;
+        }
+    }
+}

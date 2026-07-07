@@ -1,0 +1,25 @@
+@if (car) {
+<div class="car-detail">
+    <button routerLink="/">← Retour au catalogue</button>
+
+    <h2>{{ car.marque }} {{ car.modele }}</h2>
+
+    <div class="car-info">
+        <p><span>Immatriculation</span> {{ car.immatriculation }}</p>
+        <p><span>Année</span> {{ car.annee }}</p>
+        <p><span>Kilométrage</span> {{ car.kilometrage }} km</p>
+        <p><span>État</span>
+            <span class="etat {{ car.etat }}">{{ car.etat }}</span>
+        </p>
+        <p class="prix">{{ car.prix }} €</p>
+    </div>
+
+    <button class="btn-cart" (click)="addToCart()">
+        Ajouter au panier 🛒
+    </button>
+</div>
+
+} @else {
+<p>Voiture introuvable.</p>
+<button routerLink="/">← Retour au catalogue</button>
+}

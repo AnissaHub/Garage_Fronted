@@ -1,0 +1,33 @@
+<header class="header">
+    <div class="header-logo">
+        <a routerLink="/">
+            <mat-icon>directions_car</mat-icon>
+            AnissaAutoMarket
+        </a>
+    </div>
+
+    <nav class="header-nav">
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            Accueil
+        </a>
+        <a routerLink="/cart" routerLinkActive="active" class="cart-link">
+            <button mat-icon-button>
+                <mat-icon [matBadge]="cartCount" matBadgeColor="warn" [matBadgeHidden]="cartCount === 0">
+                    shopping_cart
+                </mat-icon>
+            </button>
+        </a>
+
+        @if (isLoggedIn) {
+    <a routerLink="/orders" routerLinkActive="active">Mes commandes</a>
+        <span class="user-email">{{ userEmail }}</span>
+        <a (click)="logout()" class="btn-logout">Déconnexion</a>
+        } @else {
+        <a routerLink="/register" routerLinkActive="active">Inscription</a>
+        <a routerLink="/login" routerLinkActive="active">Connexion</a>
+        }
+        @if (isAdmin) {
+        <a routerLink="/admin" routerLinkActive="active">Administration</a>
+        }
+    </nav>
+</header>

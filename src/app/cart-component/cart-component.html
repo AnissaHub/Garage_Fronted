@@ -1,0 +1,87 @@
+<div class="cart-container">
+    <h2>Mon panier</h2>
+
+    @if (cart.length === 0) {
+    <div class="empty-cart">
+        <mat-icon class="empty-icon">shopping_cart</mat-icon>
+        <p>Votre panier est vide</p>
+        <button mat-raised-button color="primary" routerLink="/">
+            <mat-icon>arrow_back</mat-icon>
+            Continuer mes achats
+        </button>
+    </div>
+
+    } @else {
+
+    <div class="cart-content">
+
+        <!-- ── Articles ────────────────────────────── -->
+        <div class="cart-items">
+            @for (item of cart; track item.car.immatriculation) {
+            <div class="cart-item">
+                <div class="cart-item-info">
+                    <h3>{{ item.car.marque }} {{ item.car.modele }}</h3>
+                    <p class="car-details">{{ item.car.annee }} — {{ item.car.kilometrage }} km</p>
+                    <p class="car-etat">
+                        <span class="etat {{ item.car.etat }}">{{ item.car.etat }}</span>
+                    </p>
+                </div>
+
+                <div class="cart-item-right">
+                    <p class="prix">{{ item.car.prix }} €</p>
+
+                    <div class="quantity-controls">
+                        <button mat-icon-button (click)="decrement(item.car.immatriculation)">
+                            <mat-icon>remove</mat-icon>
+                        </button>
+                        <span class="quantity">{{ item.quantity }}</span>
+                        <button mat-icon-button (click)="increment(item.car.immatriculation)">
+                            <mat-icon>add</mat-icon>
+                        </button>
+                    </div>
+
+                    <button mat-icon-button color="warn" (click)="remove(item.car.immatriculation)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </div>
+            }
+        </div>
+
+        <!-- ── Résumé commande ─────────────────────── -->
+        <div class="cart-summary">
+            <h3>Résumé</h3>
+
+            <div class="summary-line">
+                <span>Articles ({{ cart.length }})</span>
+                <span>{{ total }} €</span>
+            </div>
+
+            <div class="summary-line">
+                <span>Livraison</span>
+                <span class="free">Gratuite</span>
+            </div>
+
+            <div class="summary-total">
+                <span>Total</span>
+                <strong>{{ total }} €</strong>
+            </div>
+
+            <button mat-raised-button color="primary" class="btn-checkout" routerLink="/checkout">
+                <mat-icon>payment</mat-icon>
+                Commander — {{ total }} €
+            </button>
+
+            <button mat-stroked-button routerLink="/" class="btn-continue">
+                Continuer mes achats
+            </button>
+
+            <button mat-button color="warn" (click)="clear()">
+                <mat-icon>delete_sweep</mat-icon>
+                Vider le panier
+            </button>
+        </div>
+
+    </div>
+    }
+</div>
