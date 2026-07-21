@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 })
 export class PaymentService {
 
-  private apiUrl = 'https://127.0.0.1:8000/api';
+  private apiUrl = 'http://127.0.0.1:8000/api';
 
   constructor(private http: HttpClient) {}
 

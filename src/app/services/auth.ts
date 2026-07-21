@@ -8,7 +8,7 @@ import { tap } from 'rxjs/operators';
 export class AuthService {
 
   // URL de base de l'API Symfony
-  private apiUrl = 'https://127.0.0.1:8000/api';
+  private apiUrl = 'http://127.0.0.1:8000/api';
 
   // Injection du service HTTP Angular
   constructor(private http: HttpClient) { }
